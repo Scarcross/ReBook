@@ -1,0 +1,10 @@
+{% load url from future %}
+{% if booklist %}
+    <ul>
+    {% for book in booklist %}
+        <li><a href="{% url 'index' book.id %}">{{ book.bookname }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No books are available.</p>
+{% endif %}
