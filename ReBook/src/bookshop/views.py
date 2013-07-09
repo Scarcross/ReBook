@@ -1,11 +1,7 @@
 # Create your views here.
-from django.views import generic
-from bookshop.models import Book
+from django.shortcuts import render_to_response
 
 
-class IndexView(generic.ListView):
-    template_name = 'bookshop/index.html'
-    context_object_name = 'booklist'
-    
-    def queryset(self):
-        return Book.objects.all()
+
+def index(request):
+    return render_to_response('bookshop/index.html')

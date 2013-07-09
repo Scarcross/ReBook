@@ -1,10 +1,12 @@
-{% load url from future %}
-{% if booklist %}
-    <ul>
-    {% for book in booklist %}
-        <li><a href="{% url 'index' book.id %}">{{ book.bookname }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No books are available.</p>
-{% endif %}
+    {% extends 'base.html' %}
+     
+     
+    {% block title %} Blog Archive {% endblock %}
+     
+    {% block content %}
+        <h1> The Book store </h1>
+        <div class="main">
+        	{% load staticfiles %}
+			<img src="{% static "images/book.jpg" %}" alt="Book"/>
+        </div>
+    {% endblock %}
