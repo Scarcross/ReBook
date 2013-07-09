@@ -1,7 +1,14 @@
 # Django settings for ReBook project.
+import bookshop
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+
+LOGIN_URL = '/userauth/anmelden/'
+LOGOUT_URL = '/userauth/abmelden/'
+LOGIN_REDIRECT_URL = '/'
+
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -122,6 +129,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bookshop',
+    'userauth'
 
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
