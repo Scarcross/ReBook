@@ -1,5 +1,19 @@
 
 <html>
-Hello here is login
+<form action={ url 'login' } method="post">{%csrf_token%}
+    {{ form.non_field_errors }}
+    <div class="fieldWrapper">
+        {{ form.username.errors }}
+        <label for="id_subject">Username : </label>
+        {{ form.username }}
+        
+    </div>
+    <div class="fieldWrapper">
+        {{ form.password.errors }}
+        <label for="id_sender">Password:</label>
+        {{ form.password }}
+    </div>
+    <p><input type="submit" value="Login" /></p>
+</form>
 
 </html>
