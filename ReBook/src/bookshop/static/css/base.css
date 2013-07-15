@@ -70,6 +70,20 @@ nav ul#Navigation li {
 	padding: 0;
 }
 
+nav ul#Register {
+	margin: 0;
+	padding: 0.8em;
+	text-align: left;
+	background-color: silver;
+}
+
+nav ul#Register li{
+	list-style: none;
+	display: inline;
+	margin: 0.4em;
+	padding: 0;
+}
+
 /*---------------------------- aside -----------------------------*/
 aside {
 	float: right;

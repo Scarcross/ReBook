@@ -1,5 +1,9 @@
+{% extends 'base.html' %} 
 
-<html>
+{% block title %} Login {% endblock %}
+
+{% block content %}
+
 <form action={ url 'login' } method="post">{%csrf_token%}
     {{ form.non_field_errors }}
     <div class="fieldWrapper">
@@ -16,4 +20,4 @@
     <p><input type="submit" value="Login" /></p>
 </form>
 
-</html>
+{% endblock %}
