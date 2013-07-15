@@ -1,12 +1,51 @@
-    {% extends 'base.html' %}
-     
-     
-    {% block title %} Blog Archive {% endblock %}
-     
-    {% block content %}
-        <h1> The Book store </h1>
-        <div class="main">
-        	{% load staticfiles %}
-			<img src="{% static "images/book.jpg" %}" alt="Book"/>
-        </div>
-    {% endblock %}
+{% extends 'base.html' %} 
+
+{% block title %} Blog Archive {% endblock %}
+
+{% block content %}
+
+<article>
+	<p>
+		<b>3 Colums / centered / content dynamic</b><br> Handmade by
+		monorom<br> HTML5 Template CSS2/CSS3.
+	</p>
+	<p>
+		<strong>Here is the "block content"</strong>
+		<br> Linke und rechte
+		Spalte haben eine fixe Breite.
+		<br> Der
+		<code>container</code>
+		div zentriert das Layout.<br> Die
+		<code>container</code>
+		Breite wird mit
+		<code>min-width</code>
+		und
+		<code>max-width</code>
+		angegeben, das Layout wird dynamisch, passt sich dem Browserfenster an
+		und sieht auch auf dem Pad gut aus. <br> Die Spalten bekommen
+		ihre Hintergrundfarbe vom
+		<code>container</code>
+		div.
+	</p>
+
+	
+
+
+</article>
+
+{% endblock %}
+
+
+{% block aside %}
+
+<article>
+	<p>
+		<b> adds, etc.</b>
+		<br> some additional infomation
+		<br> template
+	</p>
+	
+</article>
+
+{% endblock %}
+
