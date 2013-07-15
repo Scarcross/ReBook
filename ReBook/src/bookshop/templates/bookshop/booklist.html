@@ -1,0 +1,37 @@
+{% extends 'base.html' %} 
+
+{% block title %} Blog Archive {% endblock %}
+
+{% block content %}
+
+<article>
+	<h2>test</h2>
+	{% for book in books %}
+	<div id="searchResults">
+		
+		<strong>Titel: </strong>{{ book.title }}<br>
+		<strong>Autor: </strong>{{ book.author }}<br>		 
+		<strong>Beschreibung: </strong>{{ book.description}}<br>	 
+	</div>
+	{% endfor %}
+	
+	</ul>
+	
+</article>
+
+{% endblock %}
+
+
+{% block aside %}
+
+<article>
+	<p>
+		<b> adds, etc.</b>
+		<br> some additional infomation
+		<br> template
+	</p>
+	
+</article>
+
+{% endblock %}
+
