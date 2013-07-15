@@ -7,8 +7,7 @@ from django.conf.urls import patterns, include, url
 from bookshop import views
 
 urlpatterns = patterns('',
-                           
-    url(r'^$', views.index, name='index'),
-    url(r'^booklist/$', views.booklist, name='booklist'),
+    url(r'^$', views.index, name='index' ),
+    url(r'^booklist/', views.booklist, name='booklist'),
 
 )

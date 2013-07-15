@@ -46,7 +46,6 @@ def logout(request):
     return render_to_response('userauth/logout.html')
 
 def index(request):
-    
     return render_to_response('userauth/index.html')
 
 
