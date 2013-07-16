@@ -51,13 +51,16 @@ h1,h2 {
 /*---------------------------- navigation ------------------------*/
 
 nav{
-	display: inline;
+	
 	max-width: 1200px;
 	min-width: 960px;
+	background-color: silver;
+	display: inline;
 }
 
 nav ul#Navigation {
 	margin: 0;
+	float: left;
 	padding: 0.8em;
 	text-align: left;
 	background-color: silver;
@@ -73,7 +76,7 @@ nav ul#Navigation li {
 nav ul#Register {
 	margin: 0;
 	padding: 0.8em;
-	text-align: left;
+	text-align: right;
 	background-color: silver;
 }
 

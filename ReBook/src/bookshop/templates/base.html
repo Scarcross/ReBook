@@ -20,19 +20,24 @@
 
 			<nav>
 				<ul id="Navigation">
-					{% for link in toplevellinks %}
-						<li><a href="{{ link.name }}">{{link.name}}</li>
-					{% endfor %}
-					<li><a href="{% url 'booklist' %}">Booklist&nbsp;1</a></li>
+					<li><a href="{% url 'index' %}">Main&nbsp;</a></li>
+					<li><a href="{% url 'booklist' %}">Booklist&nbsp;</a></li>
 					<li><a href="#Beispiel">Seite&nbsp;2</a></li>
 					<li><a href="#Beispiel">Seite&nbsp;3</a></li>
 					<li><a href="#Beispiel">Seite&nbsp;5</a></li>
 					<li><a href="#Beispiel">Seite&nbsp;6</a></li>
 				</ul>
-				<ul id="Register">
-					<li ><a href ={% url 'register' %}> Register </a></li>
-					<li ><a href = {% url 'login' %}> Login </a></li>
-				</ul>
+				{% if user.is_authenticated %}
+					<ul id="Register">
+						<li > Hallo {{user.username}} </li>
+						<li ><a href = {% url 'logout' %}> Logout </a></li>
+					</ul>
+				{% else %}
+					<ul id="Register">
+						<li ><a href ={% url 'register' %}> Register </a></li>
+						<li ><a href = {% url 'login' %}> Login </a></li>
+					</ul>
+				{% endif %}
 			</nav>
 		</header>
 

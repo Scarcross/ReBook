@@ -4,8 +4,7 @@ from bookshop.models import Book
 from django.template.context import Context
 
 def index(request):
-    link = [{'name':'bookshop/booklist.html'},
-            {'name':'index.html'}]
+    link = [{'name':'bookshop/booklist.html'},{'name':'index.html'}]
     c = Context({'toplevellinks': link})
     return render(request,'bookshop/index.html',c)
 
