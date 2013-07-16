@@ -17,7 +17,7 @@
 			<a href="http://www.google.de"> {% load staticfiles %}<img src="{% static "images/bookstore.png" %}" width="400px"
 				alt="ReBook" /></a>
 			<p>THE BOOK STORE</p>
-
+	
 			<nav>
 				<ul id="Navigation">
 					<li><a href="{% url 'index' %}">Main&nbsp;</a></li>
@@ -26,6 +26,9 @@
 					<li><a href="#Beispiel">Seite&nbsp;3</a></li>
 					<li><a href="#Beispiel">Seite&nbsp;5</a></li>
 					<li><a href="#Beispiel">Seite&nbsp;6</a></li>
+				{% if user.is_authenticated %}
+					<li><a href="{%url 'index' %}">TODO: USERAREA</a></li>
+				{% endif %}	
 				</ul>
 				{% if user.is_authenticated %}
 					<ul id="Register">

@@ -3,6 +3,9 @@ from django.shortcuts import render_to_response, render, redirect
 from django.contrib.auth.models import User
 from userauth.models import RegisterForm, LoginForm
 from django.contrib.auth import authenticate
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+
 
 def register(request):
     if request.method == 'POST':  # If the form has been submitted...
@@ -17,6 +20,7 @@ def register(request):
         form = RegisterForm()
     return render(request, 'userauth/register.html', {'form':form})
 
+@login_required(login_url='userauth/login.html')
 def login(request):
     if (request.method == 'POST'):
         form = LoginForm(request.POST)
@@ -41,8 +45,9 @@ def login(request):
         form = LoginForm()#  TODO:
         #     return to user message if this login is valid or not
     return render(request, 'userauth/login.html',{'form':form})
-    
+
 def logout(request):
+    logout(request)
     return render_to_response('userauth/logout.html')
 
 def index(request):
