@@ -27,8 +27,8 @@
 					<li><a href="#Beispiel">Seite&nbsp;5</a></li>
 					<li><a href="#Beispiel">Seite&nbsp;6</a></li>
 				{% if user.is_authenticated %}
-					<li><a href="{%url 'index' %}">TODO: USERAREA</a></li>
-				{% endif %}	
+					<li><a href="{% url 'userarea' %}">TODO: USERAREA</a></li>
+				{% endif %}
 				</ul>
 				{% if user.is_authenticated %}
 					<ul id="Register">
@@ -46,7 +46,6 @@
 
 
 		<aside>
-			<h2>&lt;aside&gt;</h2>
 			{% block aside %}{% endblock %}
 		</aside>
 

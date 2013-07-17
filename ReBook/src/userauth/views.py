@@ -4,7 +4,9 @@ from django.contrib.auth.models import User
 from userauth.models import RegisterForm, LoginForm
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseForbidden
+from django.template.context import Context
+from django.contrib.auth.views import password_change, password_reset
 
 
 def register(request):
@@ -56,5 +58,17 @@ def index(request):
 
 def thanks(request):
     return render_to_response('userauth/thanks.html')
+
+@login_required(login_url='userauth/userarea.html')
+def userarea(request):
+    if (request.user.is_authenticated()):
+        return render(request,'userauth/userarea.html')
+    else:
+        return HttpResponseForbidden()
+
+
+def changepw(request):
+    
+    return password_change(request)
 
 

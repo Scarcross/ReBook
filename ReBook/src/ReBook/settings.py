@@ -5,9 +5,9 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 
-LOGIN_URL = '/userauth/anmelden/'
-LOGOUT_URL = '/userauth/abmelden/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/userauth/login/'
+LOGOUT_URL = '/userauth/logout/'
+LOGIN_REDIRECT_URL = '/main/'
 
 
 ADMINS = (
