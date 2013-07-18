@@ -1,0 +1,12 @@
+
+{%extends 'base.html'%}
+{% load url from future %} 
+{% block title %}
+UserArea of {{ user.username }}
+{%endblock%}
+{%block content%} For more information check this out {%endblock%} 
+{%block aside %}
+
+<a href={% url 'password' %}>Pw Change</a>
+
+{%endblock%}
