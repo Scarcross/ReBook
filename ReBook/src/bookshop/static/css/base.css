@@ -105,6 +105,10 @@ nav ul#Register li {
 	margin: 0.4em;
 	padding: 0;
 }
+/* -----------------------------div------------------------------ */
+div#id_sender{
+	background-color: silver;
+}
 
 /*---------------------------- aside -----------------------------*/
 aside {
