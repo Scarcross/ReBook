@@ -1,0 +1,13 @@
+
+{% block search%}
+
+<ul class="searchbox_table">
+{% if books.count > 0 %}
+{% for book in books %}
+	<li>{{book.title}} {{book.author}}</li>
+{% endfor %} 
+{% else %}
+	<li>No entries!</li>
+{% endif %}
+</ul>
+{% endblock %}

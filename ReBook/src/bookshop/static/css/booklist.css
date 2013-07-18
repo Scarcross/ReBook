@@ -1,0 +1,10 @@
+#searchResults {
+	font-size: 9pt;
+	width: 300px;
+	float: left;
+	padding: 20px;
+	margin: 20px;
+	background-color: #eee;
+	max-height: 250px;
+	overflow: hidden;
+}
