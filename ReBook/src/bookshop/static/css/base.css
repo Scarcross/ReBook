@@ -90,6 +90,7 @@ nav ul#Navigation li {
 	display: inline;
 	margin: 0.4em;
 	padding: 0;
+	list-style-type: none;
 }
 
 nav ul#Register {
@@ -97,6 +98,7 @@ nav ul#Register {
 	padding: 0.8em;
 	text-align: right;
 	background-color: silver;
+	
 }
 
 nav ul#Register li {

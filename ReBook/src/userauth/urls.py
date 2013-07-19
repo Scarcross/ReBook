@@ -15,5 +15,7 @@ urlpatterns = patterns('',
     url(r'^logout/', logout,{'next_page':'/main/'}, name='logout'),
     url(r'^thanks/',views.thanks,name='thanks'),
     url(r'^userarea/',views.userarea,name='userarea'),
-    url(r'^userarea/password/',password_reset,{'post_change_redirect':'/main/'},name="password"),
+    url(r'^userarea/password-change/',password_change,{'post_change_redirect':'/main/'},name="pw_change"),
+    url(r'^userarea/password-reset/',password_reset,name='pw_reset')
+    
 )
