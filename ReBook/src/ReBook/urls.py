@@ -1,3 +1,4 @@
+
 from django.conf.urls import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
@@ -15,9 +16,13 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
    
     url(r'^$', include("bookshop.urls")),
+    url(r'^search/$', include("ajaxsearch.urls")),
+
     url(r'^main/', include("bookshop.urls")),
     
-    url(r'^userauth/', include("userauth.urls"))
+    url(r'^userauth/', include("userauth.urls")),
+
+    
     
     
    
