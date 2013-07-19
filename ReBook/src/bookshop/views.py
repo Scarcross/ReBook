@@ -1,7 +1,9 @@
 # Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from bookshop.models import Book
 from django.core.context_processors import csrf
+from django.contrib.auth.views import login
+from django.contrib.auth.middleware import get_user
 
 
 def index(request):
@@ -24,5 +26,15 @@ def booklist(request):
     if booklist is None:
         booklist = 'keine Eintraege vorhanden'
     
-    args['books'] = booklist
+    args['booklist'] = booklist
     return render(request, 'bookshop/booklist.html',args)
+
+
+
+def userArea(request):
+    user = get_user(request) 
+    if not user.is_authenticated():
+        return login(request)
+    else:        
+        return render(request, 'bookshop/userAreaIndex.html')
+    

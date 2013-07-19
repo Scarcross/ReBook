@@ -30,12 +30,11 @@
 					<li><a href="#Beispiel">Seite&nbsp;3</a></li>
 					<li><a href="#Beispiel">Seite&nbsp;5</a></li>
 					<li><a href="#Beispiel">Seite&nbsp;6</a></li> 
-					{% if user.is_authenticated %}
-					<li><a href="{%url 'index' %}">TODO: USERAREA</a></li> {% endif %}
 				</ul>
 				{% if user.is_authenticated %}
 				<ul id="Register">
 					<li>Hallo {{user.username}}</li>
+					<li><a href="{%url 'userArea' %}">Dein Bereich!</a></li> 
 					<li><a href={%url 'logout' %}> Logout </a></li>
 				</ul>
 				{% else %}
@@ -57,7 +56,6 @@
 
 
 		<aside>
-			<h2>&lt;aside&gt;</h2>
 			{% block aside %}{% endblock %}
 		</aside>
 

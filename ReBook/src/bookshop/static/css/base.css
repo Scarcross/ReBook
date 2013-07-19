@@ -117,6 +117,13 @@ aside {
 	padding: 20px;
 }
 
+#aside_navigation li{
+	border-bottom: 1px solid #ccc;
+	padding: 5px;
+	list-style: none;
+	
+}
+
 /*---------------------------- content ----------------------------*/
 section#content {
 	background-color: #ffffff;
