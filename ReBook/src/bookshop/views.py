@@ -1,7 +1,6 @@
 # Create your views here.
-from django.shortcuts import render_to_response ,render
+from django.shortcuts import render
 from bookshop.models import Book
-from django.template.context import Context
 from django.core.context_processors import csrf
 
 
@@ -22,7 +21,7 @@ def booklist(request):
         if len(str(book.description)) > 150:
             book.description = book.description[:150]+'...'
         
-    if args.get('books') is None:
+    if booklist is None:
         booklist = 'keine Eintraege vorhanden'
     
     args['books'] = booklist

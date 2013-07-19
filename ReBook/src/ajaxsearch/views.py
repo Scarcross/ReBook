@@ -1,26 +1,20 @@
+from bookshop import models
+from django.template.defaultfilters import title
 from django.shortcuts import render_to_response
+from django.core.context_processors import csrf
 
-
-def ajax_example(request):
-    if not request.POST:
-        return render_to_response('ajax/ajax_example.html', {})
-    response_dict = {}
-    name = request.POST.get('name', False)
-    total = request.POST.get('total', False)
-    response_dict.update({'name': name, 'total': total})
-    if total:
-        try:
-            total = int(total)
-        except:
-            total = False
-    if name and total and int(total) == 10:
-        response_dict.update({'success': True })
-    else:
-        response_dict.update({'errors': {}})
-        if not name:
-            response_dict['errors'].update({'name': 'This field is required'})
-        if not total and total is not False:
-            response_dict['errors'].update({'total': 'This field is required'})
-        elif int(total) != 10:
-            response_dict['errors'].update({'total': 'Incorrect total'})
-    return render_to_response('weblog/ajax_example.html', response_dict)
+def search_titles(request):
+    if request.method == 'POST':
+        search_text = request.POST['search_text']
+    
+    else: 
+        search_text = ''
+   
+    args = {}
+    args.update(csrf(request))
+    args['books'] = models.Book.objects.filter(title__contains=search_text) 
+    
+    for book in args.get('books'):
+        print(book.title)
+    
+    return render_to_response('ajax/ajax_search.html', args)
