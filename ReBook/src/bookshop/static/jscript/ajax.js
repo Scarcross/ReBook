@@ -2,7 +2,6 @@ $(function() {
 	
 	$('#search').keyup(function() {
 		$.ajax({
-			
 			type: "POST", 
 			url: "/search/",
 			data: {
