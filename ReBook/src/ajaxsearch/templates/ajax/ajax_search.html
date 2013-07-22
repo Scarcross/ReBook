@@ -3,9 +3,8 @@
 <ul class="searchbox_table">
 {% if books.count > 0 %}
 {% for book in books %}
-	<li>{{book.title}}
-	{% for author in book.author.all %} 
-			{{author.last_name}} 
+	<li id="searched"><a href="/ajax/ajaxsearch.html">{{book.title}} {% for author in book.author.all %} 
+		{{author.last_name}} </a>
 	{% endfor %}
 	</li>
 {% endfor %} 

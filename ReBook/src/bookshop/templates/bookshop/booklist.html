@@ -16,7 +16,9 @@
 	{% for book in booklist %}
 	<div id="searchResults">
 		<strong>Titel: </strong>{{ book.title }}<br>
-		<strong>Autor: </strong>{{ book.author }}<br>		 
+		{%for author in book.author.all %}
+		<strong>Autor : </strong>{{ author.first_name }} {{author.last_name}}<br>
+		{%endfor%}		 
 		<strong>Beschreibung: </strong>{{ book.description}}<br>	 
 	</div>
 	{% endfor %}
