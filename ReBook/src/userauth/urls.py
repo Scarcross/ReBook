@@ -5,7 +5,8 @@ Created on 09.07.2013
 '''
 from django.conf.urls import patterns,  url
 from userauth import views
-from django.contrib.auth.views import logout, login,password_reset
+from django.contrib.auth.views import logout, login,password_reset,\
+    password_change
 
 
 urlpatterns = patterns('',
@@ -14,5 +15,6 @@ urlpatterns = patterns('',
     url(r'^logout/', logout,{'next_page':'/main/'}, name='logout'),
     url(r'^thanks/',views.thanks,name='thanks'),
     url(r'^userarea/',views.userarea,name='userarea'),
-    url(r'^userarea/password/',password_reset,{'post_change_redirect':'/main/'},name="password"),
+    url(r'^userarea/password/',password_reset,{'post_change_redirect':'/main/'},name="pw_reset"),
+    url(r'^userarea/password/',password_change,{'post_change_redirect':'/main/'},name="pw_change"),
 )

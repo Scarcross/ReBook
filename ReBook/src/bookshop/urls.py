@@ -8,6 +8,5 @@ from bookshop import views
 
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index' ),
-    url(r'^booklist/', views.booklist, name='booklist'),
-    url(r'^userArea/', views.userArea, name='userArea'),
+    url(r'^booklist/$', views.booklist, name='booklist'),
 )
