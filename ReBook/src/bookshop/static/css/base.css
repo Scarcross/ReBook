@@ -112,11 +112,6 @@ nav ul#Navigation {
 	text-align: left;
 	background-color: silver;
 }
-
-nav li + li:before{
-    content: " | ";
-    padding: 0 10px;
-}
 nav ul#Navigation li {
 	display:inline;
 	list-style: none;

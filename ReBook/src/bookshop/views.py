@@ -11,14 +11,20 @@ def index(request):
     args.update(csrf(request))
     return render(request,'bookshop/index.html',args)
 
-def booklist(request):
+def booklist(request,bookid=None):
     args = {}
     args.update(csrf(request))
-    booklist = Book.objects.all();
-   
-    for book in booklist:
-        if len(str(book.description)) > 150:
-            book.description = book.description[:150]+'...'
+    booklist = None
+    if bookid is None:
+        booklist = Book.objects.all();
+        for book in booklist:
+            if len(str(book.description)) > 150:
+                book.description = book.description[:150]+'...'
+    else:
+        booklist = [Book.objects.all().get(id=bookid)]
+
+        if len(str(booklist[0].description)) > 150:
+                booklist[0].description = booklist[0].description[:150]+'...'
         
     if booklist is None:
         booklist = 'keine Eintraege vorhanden'

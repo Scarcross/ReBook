@@ -9,4 +9,5 @@ from bookshop import views
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index' ),
     url(r'^booklist/$', views.booklist, name='booklist'),
+    url(r'^booklist/(?P<bookid>\d+)/$', views.booklist, name='booklist'),
 )
