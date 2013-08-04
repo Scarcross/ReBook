@@ -9,7 +9,6 @@
 
 <script src="{% static "jscript/jquery-2.0.0.min.js" %}"></script>
 <script src="{% static "jscript/ajax.js" %}"></script>
-
 {% block stylesheet%}{% endblock %}
 
 <title>{% block title %}{% endblock %}</title>
@@ -18,53 +17,52 @@
 <body>
 	<div id="container">
 		<header>
-			<a href="http://www.google.de"> {% load staticfiles %}
-			<img src="{% static " images/bookstore.png" %}" width="400px" alt="ReBook" /></a>
-			<p>THE BOOK STORE</p>
-
+			<a href="http://www.google.de"> {% load staticfiles %} 
+			<img src="{% static "images/bookstore.png" %}" width="400px"alt="ReBook"/></a>
+			<div class="divider">&nbsp;</div>
 			<nav>
 				<ul id="Navigation">
-					<li><a href="{% url 'index' %}">Main&nbsp;</a></li>
-					<li><a href="{% url 'booklist' %}">Booklist&nbsp;</a></li>
-					<li><a href="#Beispiel">Seite&nbsp;2</a></li>
-					<li><a href="#Beispiel">Seite&nbsp;3</a></li>
-					<li><a href="#Beispiel">Seite&nbsp;5</a></li>
-					<li><a href="#Beispiel">Seite&nbsp;6</a></li> 
+					<li><a class="clickable" href="{% url 'index' %}">Main&nbsp;</a></li>
+					<li><a class="clickable" href="{% url 'booklist' %}">Booklist&nbsp;</a></li>
+					<li><a class="clickable" href="{% url 'genre' %}">Genre</a></li>
 				</ul>
 				{% if user.is_authenticated %}
 				<ul id="Register">
 					<li>Hallo {{user.username}}</li>
-					<li><a href={%url 'userarea' %}>Dein Bereich!</a></li> 
-					<li><a href={%url 'logout' %}> Logout </a></li>
+					<li><a class="clickable" href={%url 'userarea' %}>User
+							Area</a></li>
+					<li><a class="clickable" href={%url 'logout' %}>Logout</a></li>
 				</ul>
 				{% else %}
 				<ul id="Register">
-					<li><a href={%url 'register' %}> Register </a></li>
-					<li><a href={%url 'login' %}> Login </a></li>
+					<li><a class="clickable" href={%url 'login' %} > Login |
+							Register </a></li>
 				</ul>
-				{% endif %} 
-				
-				{% csrf_token %} 
-				<input type="text" id="search" />
+				{% endif %} {% csrf_token %} <input type="text" id="search" />
 				<div id="searchbox_container">
-					<div id="searchbox">
-					
-					</div>
+					<div id="searchbox"></div>
 				</div>
+				<div class="divider">&nbsp;</div>
 			</nav>
 		</header>
 
 
 		<aside>
-			{% block aside %}{% endblock %}
+			{% block aside %}
+			<article>
+				<ul class="aside_book">
+					<li><a href="">Sell a book</a> 
+					<li><a href="">inform friends</a>
+				</ul>
+			</article>
+			{% endblock %}
 		</aside>
-
-
-
 		<section id="content">{% block content %}{% endblock %}</section>
 
 		<footer>
-			<h2>&lt;footer&gt;</h2>
+			<ul style="list-style: none;">
+				<li><a class="clickable" href="">Impressum</a></li>
+			</ul>
 		</footer>
 
 	</div>

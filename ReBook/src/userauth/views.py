@@ -4,20 +4,17 @@ from django.contrib.auth.models import User
 from userauth.models import RegisterForm, LoginForm
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
 from django.http import HttpResponseForbidden
-from django.template.context import Context
-from django.contrib.auth.views import password_change
 
 
 def register(request):
     if request.method == 'POST':  # If the form has been submitted...
         form = RegisterForm(request.POST)
+        print form.errors
         if(form.is_valid()):
             username = request.POST['username']
-            email = request.POST['sender']
             pw = request.POST['password']
-            User.objects.create_user(username, email, pw)
+            User.objects.create_user(username, pw)
             return redirect('thanks')  # Redirect after POST
     else:
         form = RegisterForm()
@@ -42,7 +39,7 @@ def login(request):
                     return render(request,'userauth/login.html',{'form':form})
                     # Return a 'disabled account' error message
             else:
-                form.errors['othererror'] = ' Other Shit !'
+                form.errors['othererror'] = ' Other Error !'
                 return render(request,'userauth/login.html',{'form':form})
     else:
         form = LoginForm()#  TODO:

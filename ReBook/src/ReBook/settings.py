@@ -1,5 +1,4 @@
 # Django settings for ReBook project.
-import bookshop
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG

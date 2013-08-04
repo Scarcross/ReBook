@@ -1,28 +1,34 @@
 {% extends 'base.html' %} 
+{% block title %} Book Store {% endblock %} 
+{%block stylesheet%} 
 
-{% block title %} Book Store {% endblock %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static "css/booklist.css" %}">
 
+{%endblock%} 
 {% block content %}
-
 <article>
-	<p>Here are going to be all recent uploaded books or most favorite in the last time</p>
-	
 
+	{%for book in recentbooks%}
+	<div class="clickable">
+		<a href="/main/booklist/{{book.id}}"></a> <strong>Titel: </strong>
+		{{book.title }}<br> {%for author in book.author.all %} <strong>Autor
+			: </strong>{{ author.first_name }} {{author.last_name}}<br> {%endfor%} <strong>
+			Beschreibung: </strong>{{ book.description}}<br>
+
+	</div>
+
+	{%endfor%}
 
 </article>
 
-{% endblock %}
-
-
-{% block aside %}
+{% endblock %} {% block aside %}
 
 <article>
-	<p>
-		<b> adds, etc.</b>
-		<br> some additional infomation
-		<br> template
-	</p>
-	
+	<ul class="aside_book">
+		<li><a href={% url sell %}>Sell a book</a>
+		<li><a href="">inform friends</a>
+	</ul>
 </article>
 
 {% endblock %}

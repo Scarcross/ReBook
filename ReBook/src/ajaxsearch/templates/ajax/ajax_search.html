@@ -1,10 +1,14 @@
+{%load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}">
 {% block search%}
+
 
 <ul class="searchbox_table">
 {% if books.count > 0 %}
 {% for book in books %}
-	<li id="searched"><a id="searchlink" href="/main/booklist/{{book.id}}">{{book.title}} {% for author in book.author.all %} 
-		{{author.last_name}} </a>
+	<li id="searched"><a id="searchlink" href="/main/booklist/{{book.id}}">
+		{{book.title}} {% for author in book.author.all %} {{author.last_name}} 
+		</a>
 	{% endfor %}
 	</li>
 {% endfor %} 

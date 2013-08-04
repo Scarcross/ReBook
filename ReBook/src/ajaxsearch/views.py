@@ -10,5 +10,4 @@ def search_titles(request):
         if(search_text != ''):
             args.update(csrf(request))
             args['books'] = models.Book.objects.filter(title__contains=search_text)
-    
     return render_to_response('ajax/ajax_search.html', args)

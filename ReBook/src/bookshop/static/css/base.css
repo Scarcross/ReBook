@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:100);
+
 * {
 	margin: 0;
 	padding: 0;
@@ -11,10 +13,10 @@ header,footer,section,aside,article {
 }
 
 body {
-	background-color: #ccc;
+	background-color: #1a1a1a;
 	font-size: 0.95em;
-	font-family: Arial, SunSans-Regular, Sans-Serif;
-	color: #564b47;
+	font-family:'Roboto';
+	color:white;
 }
 
 pre,code {
@@ -31,7 +33,8 @@ h1,h2 {
 	max-width: 1200px;
 	min-width: 960px;
 	margin: 10px auto;
-	background-color: #eee;
+	background-color:#e74c3c;
+	color:white;
 }
 /*---------------------------- search ---------------------------*/
 
@@ -47,7 +50,7 @@ h1,h2 {
 }
 
 div #searchbox_container {
-	position: relative;	
+	position: relative;
 }
 
 div #searchbox {
@@ -58,6 +61,7 @@ div #searchbox {
 	height: 25px;
 	border-width: 1px;
 	border-radius: 4px;
+	z-index:999;
 }
 
 
@@ -68,30 +72,36 @@ ul.searchbox_table{
 	padding: 5px;
 	background-color: white;
 	box-sizing: border-box;
-	border-style:solid;
-	border-width:1px;
-	border-radius: 4px;
 }
 
 ul.searchbox_table li{
-	margin-bottom: 10px;
+	color:white;
+	margin-bottom:1px;
+	border-radius: 4px;
+	padding: 5px 0 5px 2px;
+	background-color:#136899;
+	
+}
+
+ul.searchbox_table li a{
+	color:white;
 }
 
 ul li#searched:hover{
-	background-color:#a8d1ff;
-	padding:1px;
-    margin: 0.1em;
-	border-radius: 4px
+	background-color:#136856;
+	color: #ffffff;
+	border-radius: 4px;
     -webkit-appearance: none;
-    -webkit-transition: 0.5s ease-in-out all;
-      -moz-transition: 0.5s ease-in-out all;
-      -ms-transition: 0.5s ease-in-out all;
-      -o-transition: 0.5s ease-in-out all;
-      transition: 0.5s ease-in-out all;
+    -webkit-transition:all 0.5s linear;
+      -moz-transition: all 0.5s linear;
+      -ms-transition: all 0.5s linear;
+      -o-transition: all 0.5s linear;
+      transition:all 0.5s linear;
 }
 
 ul li a#searchlink {
 display: block;
+color:white;
 text-decoration: none;
 //to make every element in list clickable
 }
@@ -101,40 +111,105 @@ text-decoration: none;
 nav {
 	max-width: 1200px;
 	min-width: 960px;
-	background-color: silver;
+	background-color: #e74c3c;
+	color:white;
 	display: inline;
 }
 
 nav ul#Navigation {
 	margin: 0;
 	float: left;
-	padding: 0.8em;
+	margin-left:3px;
 	text-align: left;
-	background-color: silver;
+	width:49%;
+	background-color: #e74c3c;
+	height:60px;
 }
 nav ul#Navigation li {
-	display:inline;
+	position:relative;
+	display:inline-block;
+	list-style: none;
+	padding: 2px;
+  	margin: 3px;
+	list-style-type: none;
+}
+a.clickable:hover{
+	background: #1e75aa;
+}
+
+a.clickable{
+	display: block;
+    background: #136899;
+    height: 42px;
+    width: 80px;
+    padding-top:2px;
+    text-align:center;
+    font-weight:bold;
+    border-radius: 5px;
+    -webkit-transition: all 0.15s linear;
+	  -moz-transition: all 0.15s linear;
+	  transition: all 0.15s linear;
+}
+
+nav ul#Register {
+	margin: 0;
+	float: right;
+	margin-right:3px;
+	text-align: right;
+	width:48%;
+	background-color: #e74c3c;
+	height:60px;
+}
+
+nav ul#Register li {
+	position:relative;
+	display:inline-block;
 	list-style: none;
 	padding: 2px;
   	margin: 3px;
 	list-style-type: none;
 }
 
-nav ul#Register {
-	margin: 0;
-	padding: 0.8em;
-	text-align: right;
+div.divider{
+	display:block;
+	height:5px;
+	padding:0;
 	background-color: silver;
-	
 }
+)
 
-nav ul#Register li {
+/*-------------------------------aside nav------------------------------ */
+
+
+ul.aside_book{
+	text-decoration:none;
+	padding:2px;
+	display:block;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
 	list-style: none;
-	display: inline;
-	margin: 0.4em;
-	padding: 0;
 }
 
+ul.aside_book li{
+	background-color:#136899;
+	display:block;
+	list-style-type: none;
+	width:100%;
+	padding:3px;
+	margin-bottom:2px;
+	position:relative;
+	text-align:center;
+	font-weight:bold;
+}
+ul.aside_book li a{
+	width:100%;
+	display:block;
+	transition: all 0.15s linear;
+	-moz-transition: all 0.15s linear;
+	-webkit-transition: all 0.15s linear;
+}
 
 
 /*-------------------------------input------------------------------ */
@@ -147,6 +222,7 @@ input[type=text]{
       width:280px;
       margin-bottom: 10px;
       border-radius: 4px;
+      text-align:left;
       -webkit-transition: 0.5s ease-in-out all;
       -moz-transition: 0.5s ease-in-out all;
       -ms-transition: 0.5s ease-in-out all;
@@ -203,7 +279,7 @@ footer {
 }
 /*---------------------------- header ---------------------------*/
 header {
-	background: #ccc;
+	background: #e74c3c;
 }
 
 header p {
@@ -217,19 +293,19 @@ header img {
 
 /*---------------------------- links ----------------------------*/
 a {
-	color: #DB7093;
+	color: blue;
 	text-decoration: none;
 }
 
 a:visited {
-	color: #DB7093;
+	color: white;
 }
 a#searchlink{
 	color:#000000;
 }
 
 a:hover {
-	color: #564b47;
+	color: #000000;
 }
 
 a:active {

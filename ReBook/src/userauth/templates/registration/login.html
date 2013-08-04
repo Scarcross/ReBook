@@ -1,26 +1,7 @@
-{% extends 'base.html' %} 
+{% extends 'baselogin.html' %} {% block title %} Login {% endblock %}
+{%if user.is_authenticated %}
+<h1>You are already logged in</h1>
 
-{% block title %} Login {% endblock %}
+{%else%} {% block formlogin %}
 
-{% block content %}
-{% if user.is_authenticated %}
-<h1>You are already logged in </h1>
-
-{%else%}
-
-<form action={ url 'login' } method="post">{%csrf_token%}
-    {{ form.non_field_errors }}
-    <div class="fieldWrapper">
-        {{ form.username.errors }}
-        <label id="id_subject" for="id_subject">Username : </label>
-        {{ form.username }}
-    </div>
-    <div class="fieldWrapper">
-        {{ form.password.errors }}
-        <label id="id_sender" for="id_sender">Password:</label>
-        {{ form.password }}
-    </div>
-    <p><input type="submit" value="Login" /></p>
-</form>
-
-{%endif%}{% endblock %}
+{%endblock%} {%endif%}

@@ -1,12 +1,16 @@
-{%extends 'base.html'%}
-{% load url from future %} 
-{% block title %}
+{%extends 'base.html'%} {% load url from future %} {% block title %}
 UserArea of {{ user.username }} 
 {%endblock%} 
-{%block content%} 
-For more information check this out {%endblock%} {%block aside %}
-<ul style="list-style: none;">
-	<li><a href={%url 'pw_change' %} >Pw Change</a></li>
-	<li><a href={%url 'pw_reset' %}>Pw Reset</a></li>
-</ul>
+{%block content%}
+<article>
+Nothing here
+</article>
+
+{%endblock%} {%block aside %}
+<article>
+	<ul class="aside_book">
+		<li><a href={% url 'pw_change' %} >Pw Change</a></li>
+		<li><a href={% url 'pw_reset' %}>Pw Reset</a></li>
+	</ul>
+</article>
 {%endblock%}

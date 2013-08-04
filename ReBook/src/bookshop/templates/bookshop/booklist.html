@@ -3,7 +3,6 @@
 
 
 {% block title %} Bookstore Booklist {% endblock %}
-
 {% block stylesheet%}
 {% load staticfiles %}
 <link rel="stylesheet" type="text/css" href="{% static "css/booklist.css" %}">
@@ -12,34 +11,20 @@
 {% block content %}
 
 <article>
-	<h2>Found results</h2>
 	{% for book in booklist %}
-	<div id="searchResults">
-		<strong>Titel: </strong>{{ book.title }}<br>
+	<div class="clickable">
+		<a href="/main/booklist/{{book.id}}"></a>
+		<strong>Titel: </strong>{{book.title}}<br>
 		{%for author in book.author.all %}
 		<strong>Autor : </strong>{{ author.first_name }} {{author.last_name}}<br>
 		{%endfor%}		 
-		<strong>Beschreibung: </strong>{{ book.description}}<br>	 
+		<strong> Beschreibung: </strong>{{ book.description}}<br>
 	</div>
 	{% endfor %}
 	
-	</ul>
-	
 </article>
 
 {% endblock %}
 
 
-{% block aside %}
-
-<article>
-	<p>
-		<b> adds, etc.</b>
-		<br> some additional infomation
-		<br> template
-	</p>
-	
-</article>
-
-{% endblock %}
 

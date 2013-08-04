@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} Bookstore GenreFiler {% endblock %}
+
+{% block stylesheet%}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static "css/genre.css" %}">
+{% endblock %}
+
+{% block content %}
+
+<article>
+	<div id="genres">
+		{% for book in foundgenres %}
+			<li><a href='/main/booklist/{{book.id}}'>{{book}}</a></li>
+ 		{% endfor %}
+ 	</div>
+</article>
+{% endblock %}
+{% block aside %}
+	<ul class='aside_book'>
+	{% for genreid,genrename in genres.items%}
+	<li>
+		<a href='/main/genre/{{genreid}}'>{{genrename}}</a>
+	</li>
+	{%endfor%}
+	</ul>
+{% endblock %}
+
+
+

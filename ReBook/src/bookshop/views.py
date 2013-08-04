@@ -1,14 +1,13 @@
 # Create your views here.
-from bookshop.models import Book
-from django.contrib.auth.middleware import get_user
-from django.contrib.auth.views import login
+from bookshop.models import Book, Genre
 from django.core.context_processors import csrf
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render
 
 
 def index(request):
     args = {}
     args.update(csrf(request))
+    args['recentbooks'] = Book.objects.all().order_by('date_added')
     return render(request,'bookshop/index.html',args)
 
 def booklist(request,bookid=None):
@@ -31,3 +30,28 @@ def booklist(request,bookid=None):
     
     args['booklist'] = booklist
     return render(request, 'bookshop/booklist.html',args)
+
+
+def genre(request,genreid=None):
+    args ={}
+#Print all Genres on right side
+    genres = Genre.objects.all()
+#get human readable bnames
+    dictgen = dict()
+    for gen in genres:
+        dictgen[gen.id] = gen.get_genrename_display()
+    args['genres']=dictgen
+# Print selected genre
+    if genreid is not None:
+        genrename = Genre.objects.get(id = genreid)
+        filteredbooks = Book.objects.all().filter(genre__genrename__exact=genrename)
+        args['foundgenres']=filteredbooks
+        
+    return render(request,'bookshop/genre.html',args)
+
+
+def selldialog(request):
+    return render(request,'bookshop/sellDialog.html')
+    
+
+

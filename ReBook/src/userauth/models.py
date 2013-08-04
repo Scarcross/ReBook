@@ -1,13 +1,10 @@
-from django.db import models
 from django import forms
 # Create your models here.
 class RegisterForm(forms.Form):
-    username = forms.CharField(max_length=100)
-    password = forms.CharField(widget=forms.PasswordInput)
-    sender = forms.EmailField()
-    
+    username = forms.EmailField(max_length=100,widget=forms.TextInput(attrs={'autocomplete':'off','placeholder':'Username'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder':'Password'}))
     
 class LoginForm(forms.Form):
-    username = forms.CharField(max_length=100)
-    password = forms.CharField(widget = forms.PasswordInput)
+    username = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'autocomplete':'off','placeholder':'Username'}))
+    password = forms.CharField(widget = forms.PasswordInput(attrs={'placeholder':'Password'}))
 
