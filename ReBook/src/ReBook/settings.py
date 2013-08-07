@@ -8,23 +8,22 @@ LOGIN_URL = '/userauth/login/'
 LOGOUT_URL = '/userauth/logout/'
 LOGIN_REDIRECT_URL = '/main/'
 
-
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
-    ('test','test@test.de')
+    ('test', 'test@test.de')
 )
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '/home/richman/Dokumente/Studium/Programmierung/Lightstar/ReBook/ReBook/src/sqlite.db',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '/home/richman/Dokumente/Studium/Programmierung/Lightstar/ReBook/ReBook/src/sqlite.db',  # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'test',
         'PASSWORD': 'test',
-        'HOST': '127.0.0.1',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '8080',                   # Set to empty string for default.
+        'HOST': '127.0.0.1',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '8080',  # Set to empty string for default.
     }
 }
 
@@ -119,6 +118,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',

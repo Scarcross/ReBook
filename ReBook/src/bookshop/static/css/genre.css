@@ -1,0 +1,15 @@
+div #genres {
+	background-color: #136899;
+	margin-bottom: 2px;
+	position: relative;
+}
+
+div #genres a {
+	display: block;
+	padding-left:1em;
+	padding-top:2px;
+	padding-bottom:2px;
+	-webkit-transition: all 0.15s linear;
+	-moz-transition: all 0.15s linear;
+	transition: all 0.15s linear;
+}

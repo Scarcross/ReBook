@@ -1,0 +1,72 @@
+{% load url from future %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static "css/baselogin.css" %}">
+
+<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+<script src="{% static "jscript/jquery-2.0.0.min.js" %}"></script>
+<script src="{% static "jscript/ajax.js" %}"></script>
+<script src="{% static "jscript/baselogin.js" %}"></script>
+{% block stylesheet%}{% endblock %}
+
+<title>{% block title %}{% endblock %}</title>
+
+</head>
+<body>
+	<div class="container">
+		<div class="flat-form">
+			<ul class="tabs">
+				<li><a href="#login" class="active">Login</a></li>
+				<li><a href="#register">Register</a></li>
+				<li><a href="#reset">Reset Password</a></li>
+				<li><a href="#social">Social Login</a>
+			</ul>
+			<div id="login" class="form-action show">
+				<h1>Login into Rebook</h1>	 {% block formlogin %}{%endblock%}
+				<form action={% url 'login' %} method="post">
+					{%csrf_token%}
+					<p>{{ form.non_field_errors }}</p>
+					<ul>
+						<li>{{form.username}} {{form.username.errors}}</li>
+						<li>{{form.password}} {{form.password.errors}}</li>
+						<li><input type="submit" value="Login" class="button" /></li>
+					</ul>
+				</form>
+			</div>
+			<div id="register" class="form-action hide">
+				<h1>Register</h1>
+				<p>You should totally sign up for our super awesome service.
+					It's what all the cool kids are doing nowadays.</p>
+				<form action={% url 'register' %} method="post">
+					{%csrf_token%}
+					<ul>
+						<li>{{form.username}}{{form.username.errors}}</li>
+						<li>{{form.password}}{{form.password.errors}}</li>
+						<li><input type="submit" value="Send" class="button" /></li>
+					</ul>
+				</form>
+				<!--/#register.form-action-->
+				<div id="reset" class="form-action hide">
+					<h1>Reset Password</h1>
+					<p>To reset your password enter your email and your birthday
+						and we'll send you a link to reset your password.</p>
+					<form method="post" action=".">
+						{{form.as_p}} <input type="submit" value="Change" /> {%
+						csrf_token %}
+					</form>
+				</div>
+				<!--/#register.form-action-->
+			</div>
+		</div>
+	</div>
+	<script class="cssdeck"
+		src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+</body>
+</html>

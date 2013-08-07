@@ -89,7 +89,7 @@ ul.searchbox_table li a{
 
 ul li#searched:hover{
 	background-color:#136856;
-	color: #ffffff;
+	color: #EEEEEE;
 	border-radius: 4px;
     -webkit-appearance: none;
     -webkit-transition:all 0.5s linear;
