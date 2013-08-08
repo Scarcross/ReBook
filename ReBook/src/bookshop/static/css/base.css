@@ -233,6 +233,30 @@ ul.aside_book li a:hover{
 	-webkit-transition: all 0.15s linear;
 } */
 
+ul.aside_book li a{
+	width:100%;
+	display: block;
+}
+
+
+
+ul.aside_book li a:hover{
+	display:block;
+	color:#136899;
+	transition: all 0.15s linear;
+	-moz-transition: all 0.15s linear;
+	-webkit-transition: all 0.15s linear;
+}
+
+/*ul.aside_book li a:hover{
+	width:100%;
+	display:block;
+	color:#111111;
+	transition: all 0.15s linear;
+	-moz-transition: all 0.15s linear;
+	-webkit-transition: all 0.15s linear;
+} */
+
 
 /*-------------------------------input------------------------------ */
 input[type=text]{ 
@@ -315,7 +339,11 @@ header img {
 
 /*---------------------------- links ----------------------------*/
 a {
+<<<<<<< Upstream, based on ORIG_HEAD
 	color:white;
+=======
+	color: white;
+>>>>>>> 5435247 Changed urls in userauth. Also changed behavior of Login screen to correctly redirect after submit
 	text-decoration: none;
 }
 
