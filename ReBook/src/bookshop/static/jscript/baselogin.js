@@ -18,6 +18,6 @@ $(document)
 										HIDE_CLASS).hide();
 
 								$(href).removeClass(HIDE_CLASS).addClass(
-										SHOW_CLASS).hide().fadeIn(550);
+										SHOW_CLASS).hide().fadeIn(500);
 							});
 				}));

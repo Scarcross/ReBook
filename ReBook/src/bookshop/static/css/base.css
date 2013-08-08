@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:100);
+@import url(http://fonts.googleapis.com/css?family=Roboto:110);
 
 * {
 	margin: 0;
@@ -89,14 +89,13 @@ ul.searchbox_table li a{
 
 ul li#searched:hover{
 	background-color:#136856;
-	color: #EEEEEE;
 	border-radius: 4px;
     -webkit-appearance: none;
-    -webkit-transition:all 0.5s linear;
-      -moz-transition: all 0.5s linear;
-      -ms-transition: all 0.5s linear;
-      -o-transition: all 0.5s linear;
-      transition:all 0.5s linear;
+    -webkit-transition:all 0.5s ;
+      -moz-transition: all 0.5s ;
+      -ms-transition: all 0.5s ;
+      -o-transition: all 0.5s ;
+      transition:all 0.5s ;
 }
 
 ul li a#searchlink {
@@ -133,19 +132,21 @@ nav ul#Navigation li {
   	margin: 3px;
 	list-style-type: none;
 }
-a.clickable:hover{
-	background: #1e75aa;
-}
 
 a.clickable{
 	display: block;
-    background: #136899;
+    background-color: #136899;
     height: 42px;
     width: 80px;
     padding-top:2px;
     text-align:center;
     font-weight:bold;
     border-radius: 5px;
+}
+a.clickable:hover{
+	background-color: #1e75aa;
+	color:#136899;
+	background-color:white;
     -webkit-transition: all 0.15s linear;
 	  -moz-transition: all 0.15s linear;
 	  transition: all 0.15s linear;
@@ -184,7 +185,6 @@ div.divider{
 ul.aside_book{
 	text-decoration:none;
 	padding:2px;
-	display:block;
 	width:100%;
 	height:100%;
 	top:0;
@@ -194,7 +194,6 @@ ul.aside_book{
 
 ul.aside_book li{
 	background-color:#136899;
-	display:block;
 	list-style-type: none;
 	width:100%;
 	padding:3px;
@@ -203,13 +202,36 @@ ul.aside_book li{
 	text-align:center;
 	font-weight:bold;
 }
-ul.aside_book li a{
-	width:100%;
-	display:block;
+ul.aside_book li:hover{
+	background-color:white;
 	transition: all 0.15s linear;
 	-moz-transition: all 0.15s linear;
 	-webkit-transition: all 0.15s linear;
 }
+
+ul.aside_book li a{
+	width:100%;
+	display: block;
+}
+
+
+
+ul.aside_book li a:hover{
+	display:block;
+	color:#136899;
+	transition: all 0.15s linear;
+	-moz-transition: all 0.15s linear;
+	-webkit-transition: all 0.15s linear;
+}
+
+/*ul.aside_book li a:hover{
+	width:100%;
+	display:block;
+	color:#111111;
+	transition: all 0.15s linear;
+	-moz-transition: all 0.15s linear;
+	-webkit-transition: all 0.15s linear;
+} */
 
 
 /*-------------------------------input------------------------------ */
@@ -293,7 +315,7 @@ header img {
 
 /*---------------------------- links ----------------------------*/
 a {
-	color: blue;
+	color: white;
 	text-decoration: none;
 }
 

@@ -38,7 +38,6 @@ class Genre(models.Model):
         ('BI','Biographie'),
         ('CC','Comic'),
         ('CO','Computer'),
-        ('ER','Erotik'),
         ('EZ','Erzählungen'),
         ('ET','Essen und Trinken'),
         ('FE','Familie'),

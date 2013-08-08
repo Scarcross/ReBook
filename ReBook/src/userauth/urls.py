@@ -5,13 +5,13 @@ Created on 09.07.2013
 '''
 from django.conf.urls import patterns,  url
 from userauth import views
-from django.contrib.auth.views import logout, login,password_reset,\
+from django.contrib.auth.views import logout, password_reset,\
     password_change
 
 
 urlpatterns = patterns('',
     url(r'^register/', views.register, name='register'),
-    url(r'^login/', login,name='login'),
+    url(r'^login/', views.login,name='login'),
     url(r'^logout/', logout,{'next_page':'/main/'}, name='logout'),
     url(r'^thanks/',views.thanks,name='thanks'),
     url(r'^userarea/',views.userarea,name='userarea'),
