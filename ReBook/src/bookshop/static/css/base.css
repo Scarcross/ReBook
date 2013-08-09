@@ -339,11 +339,7 @@ header img {
 
 /*---------------------------- links ----------------------------*/
 a {
-<<<<<<< Upstream, based on ORIG_HEAD
-	color:white;
-=======
 	color: white;
->>>>>>> 5435247 Changed urls in userauth. Also changed behavior of Login screen to correctly redirect after submit
 	text-decoration: none;
 }
 
