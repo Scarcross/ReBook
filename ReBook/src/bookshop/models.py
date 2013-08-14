@@ -14,6 +14,19 @@ class Publisher(models.Model):
     
     def __unicode__(self):
         return self.name
+class Actor(models.Model):
+    name = models.TextField()
+    
+    
+class Video(models.Model):
+    name = models.CharField(max_length=1000)
+    url = models.URLField( verify_exists=True)
+    tags = models.TextField()
+    actors = models.ManyToManyField(Actor)
+    
+
+    
+
 
 #Author des Buches
 class Author(models.Model):

@@ -12,6 +12,6 @@ urlpatterns = patterns('',
     url(r'^booklist/(?P<bookid>\d+)/$', views.booklist, name='booklist'),
     url(r'^genre/$', views.genre, name='genre'),
     url(r'^genre/(?P<genreid>\w+)/$', views.genre, name='genre'),
-    url(r'^sell/$',views.selldialog,name='sell'),
+    url(r'^mostviewed/$', views.mostviewed, name='mostviewed'),
     
 )

@@ -50,8 +50,8 @@ def genre(request,genreid=None):
     return render(request,'bookshop/genre.html',args)
 
 
-def selldialog(request):
-    return render(request,'bookshop/sellDialog.html')
+def mostviewed(request):
     
+    return render(request,'bookshop/mostviewed.html')
 
 
