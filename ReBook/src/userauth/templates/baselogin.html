@@ -11,10 +11,14 @@
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
+<script type="text/javascript">
+{% autoescape off %}
+	var js_data = {{js_data}};
+{% endautoescape %} 
+</script>
 <script src="{% static "jscript/jquery-2.0.0.min.js" %}"></script>
 <script src="{% static "jscript/ajax.js" %}"></script>
 <script src="{% static "jscript/baselogin.js" %}"></script>
-
 {% block stylesheet%}{% endblock %}
 
 <title>{% block title %}{% endblock %}</title>
@@ -24,13 +28,13 @@
 	<div class="container">
 		<div class="flat-form">
 			<ul class="tabs">
-				<li><a href="#login" class="active">Login</a></li>
-				<li><a href="#register" >Register</a></li>
+				<li><a href="#login">Login</a></li>
+				<li><a href="#register">Register</a></li>
 				<li><a href="#reset">Reset Password</a></li>
 				<li><a href="#social">Social Login</a>
 			</ul>
-			<div id="login" class="form-action show">
-				<h1>Login into Rebook</h1>	 {% block formlogin %}{%endblock%}
+			<div id="login" class="form-action hide">
+				<h1>Login into Rebook</h1>
 				<form action={% url 'login' %} method="post">
 					{%csrf_token%}
 					<p>{{ form.non_field_errors }}</p>
@@ -51,18 +55,18 @@
 						<li><input type="submit" value="Send" class="button" /></li>
 					</ul>
 				</form>
-				<!--/#register.form-action-->
-				<div id="reset" class="form-action hide">
-					<h1>Reset Password</h1>
-					<p>To reset your password enter your email and your birthday
-						and we'll send you a link to reset your password.</p>
-					<form method="post" action="{% url 'pw_reset' %}">
-						{%csrf_token %}
-						{{form.as_p}}
-						<input type="submit" value="Change" /> 
-					</form>
-				</div>
-				<!--/#register.form-action-->
+			</div>
+			<div id="reset" class="form-action hide">
+				<h1>Reset Password</h1>
+				<p>To reset your password enter your email and your birthday and
+					we'll send you a link to reset your password.</p>
+				<form method="post" action={%url 'pw_reset' %}>
+					{%csrf_token %}
+					<ul>
+						<li>{{form.username.errors}}{{form.username}}</li>
+						<li><input type="submit" value="Change Password" class="button" /></li>
+					</ul>
+				</form>
 			</div>
 		</div>
 	</div>
