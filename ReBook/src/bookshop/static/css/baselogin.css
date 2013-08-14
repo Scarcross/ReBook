@@ -10,7 +10,9 @@ body {
   background: #e74c3c;
   margin: 25px auto;
   width: 520px;
-  height: 340px;
+  min-width:340px;
+  max-width:100%;
+  padding-bottom:20px;
   position: relative;
   font-family: 'Roboto';
 }

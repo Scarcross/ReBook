@@ -20,7 +20,7 @@ class Actor(models.Model):
     
 class Video(models.Model):
     name = models.CharField(max_length=1000)
-    url = models.URLField( verify_exists=True)
+    url = models.URLField()
     tags = models.TextField()
     actors = models.ManyToManyField(Actor)
     

@@ -7,20 +7,29 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
 from django.contrib.auth import login
 from django.utils import simplejson
+from django.forms.util import ErrorList
+from django import forms
 
 def register(request):
     #Js data is just for redirect to the right anchor after a failure while logging in
     js_data = simplejson.dumps('#register')
+    #dummy form
+    loginform = LoginForm()
     if request.method == 'POST':  # If the form has been submitted...
         form = RegisterForm(request.POST)
         if(form.is_valid()):
             username = request.POST['username']
             pw = request.POST['password']
-            User.objects.create_user(username, pw)
+            email = request.POST['email']
+            User.objects.create_user(username,email, pw)
             return redirect('thanks')  # Redirect after POST
+        else:
+            #user already exists
+            errors = form._errors.setdefault(forms.forms.NON_FIELD_ERRORS, ErrorList())
+            errors.append("Username already exists!")
+            return render(request,'registration/login.html', {'pwform':form,'form':loginform,'js_data':js_data})
     else:
         form = RegisterForm()
-    loginform = LoginForm()
     return render(request, 'registration/login.html', {'pwform':form,'form':loginform,'js_data':js_data})
 
 def login(request):
@@ -40,11 +49,12 @@ def login(request):
                     return redirect('thanks')
                     # Redirect to a success page.
                 else:
-                    form.username.errors['loginerror'] += 'Login err !'
+                    form._errors['loginerror'] += 'Login err !'
                     return render(request,'registration/login.html',{'form':form,'pwform':pwform,'js_data':js_data})
                     # Return a 'disabled account' error message
             else:
-                form.errors['othererror'] = ' Other Error !'
+                errors = form._errors.setdefault(forms.forms.NON_FIELD_ERRORS, ErrorList())
+                errors.append('Your provided login data was incorrect')
                 return render(request,'registration/login.html',{'form':form,'pwform':pwform,'js_data':js_data})
     else:
         form = LoginForm()#  TODO:

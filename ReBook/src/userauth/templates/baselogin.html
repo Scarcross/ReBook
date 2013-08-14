@@ -29,12 +29,7 @@
 		<div class="flat-form">
 			<ul class="tabs">
 				<li><a href="#login">Login</a></li>
-<<<<<<< Upstream, based on origin/master
-				<li><a href="#register" >Register</a></li>
-
-=======
 				<li><a href="#register">Register</a></li>
->>>>>>> 1e99c50 Login screen now correctly redirects to the last failed element
 				<li><a href="#reset">Reset Password</a></li>
 				<li><a href="#social">Social Login</a>
 			</ul>
@@ -57,6 +52,7 @@
 					<ul>
 						<li>{{pwform.username.errors}}{{pwform.username}}</li>
 						<li>{{pwform.password.errors}}{{pwform.password}}</li>
+						<li>{{pwform.email.errors}}{{pwform.email}}</li>
 						<li><input type="submit" value="Send" class="button" /></li>
 					</ul>
 				</form>
@@ -65,11 +61,11 @@
 				<h1>Reset Password</h1>
 				<p>To reset your password enter your email and your birthday and
 					we'll send you a link to reset your password.</p>
-				<form method="post" action={%url 'pw_reset' %}>
+				<form method="post" action={% url 'pw_reset' %}>
 					{%csrf_token %}
 					<ul>
-						<li>{{form.username.errors}}{{form.username}}</li>
-						<li><input type="submit" value="Change Password" class="button" /></li>
+						<li><input type="text" placeholder="Enter your Email Address"></li>
+						<li><input type="submit" value="Reset Password" class="button" /></li>
 					</ul>
 				</form>
 			</div>
